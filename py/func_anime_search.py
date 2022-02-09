@@ -12,6 +12,6 @@ def anime_search():
         print("No results found.")
     else:
         print(re_len + " result(s) found:")
-        print(print(json.dumps(redata, indent= 4, sort_keys= True)))
+        print(json.dumps(redata, indent= 4, sort_keys= True))
         
 anime_search()
