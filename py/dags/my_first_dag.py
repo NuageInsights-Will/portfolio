@@ -19,12 +19,10 @@ from airflow.operators.python import PythonOperator
 
 import pandas as pd
 import sqlite3
-import os
 
 def check_connection(database: str):
     connection = sqlite3.connect(database)
     connection.close()
-    print(os.getcwd())
 
 def upload_data(database: str):
     connection = sqlite3.connect(database)
