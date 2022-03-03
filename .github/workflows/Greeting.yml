@@ -1,0 +1,20 @@
+#This is the name of the workflow action
+name: Greeting
+
+on:
+# Triggers the workflow on publicizing the repository
+  public:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains two jobs called "hello" and "print_repos"
+  hello:
+    - name: Prints "Hello world." # This is what will show in the log.
+      run: echo "Hello world."
+
+  print_repos:
+    - name: Prints the name of the repository in a message.
+      run: echo "Thank you for viewing ${{ github.repository }}."
