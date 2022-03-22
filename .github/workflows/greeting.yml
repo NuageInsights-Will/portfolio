@@ -2,9 +2,6 @@
 name: Greeting
 
 on:
-# Triggers the workflow on publicizing the repository
-  public:
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -15,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Prints "Hello world." # This is what will show in the log.
-    - run: echo "Hello world."
+      run: echo "Hello world."
 
   print_repos:
     runs-on: ubuntu-latest
     steps:
     - name: Prints the name of the repository in a message.
-    - run: echo "Thank you for viewing ${{ github.repository }}."
+      run: echo "Thank you for viewing ${{ github.repository }}."
