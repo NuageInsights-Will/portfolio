@@ -1,0 +1,4 @@
+pytest
+mypy
+requests
+json

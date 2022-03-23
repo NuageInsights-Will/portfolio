@@ -20,11 +20,11 @@ from airflow.operators.python import PythonOperator
 import pandas as pd
 import sqlite3
 
-def check_connection(database: str):
+def check_connection(database: str) -> None:
     connection = sqlite3.connect(database)
     connection.close()
 
-def upload_data(database: str):
+def upload_data(database: str) -> None:
     connection = sqlite3.connect(database)
     cursor = connection.cursor()
     cursor.execute("DROP TABLE IF EXISTS zillow_cleaned")
@@ -36,7 +36,7 @@ def upload_data(database: str):
     connection.close()
 
 def finish(text: str) -> str:
-    print(text)
+    return text
 
 
 with DAG(

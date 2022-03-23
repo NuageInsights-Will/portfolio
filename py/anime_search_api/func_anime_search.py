@@ -2,23 +2,26 @@ import requests as rq
 import json
 
 
-def anime_search():
+def animesearch(q: str) -> dict:
     searchparams = {
-        "q": input("Search for anime: "),
+        "q": q,
         "limit": 20,
         "order_by": "popularity",
         "sort": "asc",
     }
     re = rq.get("https://api.jikan.moe/v4/anime", params=searchparams)
-    redata = re.json()
-    re_len = str(str(redata).count("title_english"))
-    if response.status_code >= 400:
+    data = re.json()
+    results = str(str(data).count("title_english"))
+    if re.status_code >= 400:
         print("No results found.")
-    elif redata["data"] == []:
+    elif data["data"] == []:
         print("No results found.")
     else:
-        print(re_len + " result(s) found:")
-        print(json.dumps(redata, indent=4, sort_keys=True))
+        print(results + " result(s) found:")
+        return json.dumps(data, indent=4, sort_keys=True)
 
 
-anime_search()
+q = input("Search for anime: ")
+animes = animesearch(q)
+
+print(animes)
