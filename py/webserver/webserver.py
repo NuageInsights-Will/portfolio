@@ -1,5 +1,5 @@
-from flask import Flask, jsonify, url_for, request
-from markupsafe import escape
+import json
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -16,18 +16,18 @@ users = [
 
 
 @app.route("/", methods=["GET"])
-def index():
+def index() -> json:
     return jsonify({"message": "Hello, world!"})
 
 
 @app.route("/flavours", methods=["GET"])
-def show_all_flavours():
+def show_all_flavours() -> json:
     # returns all the values in the icecream_flavours list
     return jsonify({"icecream_flavours": icecreams})
 
 
 @app.route("/flavours/<string:name>", methods=["GET"])
-def show_one_flavour(name: str):
+def show_one_flavour(name: str) -> json:
     """_summary_
 
     Args:
@@ -41,7 +41,7 @@ def show_one_flavour(name: str):
 
 
 @app.route("/signup", methods=["POST"])
-def signup():
+def signup() -> json:
     new_user = {"name": request.json["name"], "email": request.json["email"]}
     users.append(new_user)
     return jsonify({"users": users})
