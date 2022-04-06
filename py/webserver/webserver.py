@@ -1,19 +1,30 @@
 import json
-from flask import Flask, jsonify, request
+import os
+from dotenv import load_dotenv, find_dotenv
+from flask import Flask, jsonify#, request, render_template
+#from datetime import datetime
+import psycopg2
+
+#give our file access to environment variables
+load_dotenv(find_dotenv())
 
 app = Flask(__name__)
+
+#function that establishes a connection to our database
+def get_db_connection() -> None:
+    conn = psycopg2.connect(
+            host='pg-db-host',
+            port=5432,
+            database='postgres',
+            user=os.getenv('DB_USER'),
+            password=os.getenv('DB_PASS'))
+    return conn
 
 icecreams = {
     "MrSmith": {"flavour": "Vanilla", "price": 3.50},
     "MrsSmith": {"flavour": "Chocolate", "price": 3.50},
     "Matcha": {"flavour": "Green Tea", "price": 5.50},
 }
-
-users = [
-    {"name": "Vivian", "email": "vivian.d@gmail.com"},
-    {"name": "Erica", "email": "erica.d@gmail.com"},
-]
-
 
 @app.route("/", methods=["GET"])
 def index() -> json:
@@ -40,8 +51,11 @@ def show_one_flavour(name: str) -> json:
     return jsonify({"icecream": flavours})
 
 
-@app.route("/signup", methods=["POST"])
-def signup() -> json:
-    new_user = {"name": request.json["name"], "email": request.json["email"]}
-    users.append(new_user)
-    return jsonify({"users": users})
+@app.route("/users", methods=["GET"])
+def users() -> json:
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT name FROM users;")
+            users = cur.fetchall()
+    return json.dumps(users)
+

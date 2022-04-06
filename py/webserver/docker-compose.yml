@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  webserver:
+    build: .
+    environment:
+      FLASK_APP: 'webserver.py'
+      FLASK_DEBUG: 1
+    volumes: 
+      - .:/usr/src/app
+    ports:
+      - 5000:5000
+  
+  db:
+    hostname: pg-db-host
+    container_name: postgresql_db
+    image: postgres:12.10
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASS}
+    ports:
+      - 5433:5432
+  
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@root.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - 5050:80
