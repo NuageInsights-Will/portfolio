@@ -1,0 +1,8 @@
+FROM python:3.9.0
+
+WORKDIR /usr/local/airflow/
+ENV AIRFLOW_HOME=/usr/local/airflow/
+
+COPY requirements-airflow.txt .
+RUN pip install --no-cache-dir -r requirements-airflow.txt
+CMD ["airflow", "standalone"]

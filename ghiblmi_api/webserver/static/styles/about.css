@@ -1,0 +1,134 @@
+@charset "UTF-8";
+/* CSS for Ghiblmi API */
+
+@font-face {
+    font-family:"Uni Neue Black";
+    font-weight:black italic;
+    src:url('/static/fonts/UniNeueBlack-Italic.otf');
+}
+
+@font-face {
+    font-family:"Uni Neue";
+    font-weight:bold;
+    src:url('/static/fonts/UniNeueBold.otf');
+}
+
+@font-face {
+    font-family:"Whitney";
+    font-weight:book;
+    src:url('/static/fonts/Whitney-Book-Pro.otf');
+}
+
+body {
+    background-color:#212529;
+    margin:0;
+    padding:0;
+}
+
+h1 {
+    display: inline-block;
+    color: #fefefe;
+    text-align:left;
+    font-family:
+        "Uni Neue Black",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:30px;
+    padding-top:.5em;
+    padding-left:1.5em;
+    text-transform:uppercase;
+}
+
+h2 {
+    float:right;
+    margin-top:1.75em;
+    margin-right:2.5em;
+}
+
+h3 {
+    color: #fefefe;
+    text-align:center;
+    font-family:
+        "Uni Neue",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:44px; 
+    padding-top:20px;
+    text-transform:uppercase;
+}
+
+a:link {
+    color: #fefefe;
+    text-align:right;
+    font-family:
+        "Uni Neue Black",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:24px;
+    padding-left:1em;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #fefefe;
+    text-align:right;
+    font-family:
+        "Uni Neue Black",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:24px;
+    padding-left:1em;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fefefe;
+    text-align:right;
+    font-family:
+        "Uni Neue Black",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:24px;
+    padding-left:1em;
+    text-decoration: underline solid;
+    text-shadow: -1px 1px 1px #00DCFF;
+}
+
+a:active {
+    color:  #94eda0;
+    text-align:right;
+    font-family:
+        "Uni Neue Black",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:24px;
+    padding-left:1em;
+    text-decoration: none;
+    text-shadow: -1px 1px 1px #00DCFF;
+}
+
+br {
+    display: block; /* makes it have a width */
+    content: ""; /* clears default height */
+    margin-top: 25%; /* change this to whatever height you want it */
+}
+
+p {
+    color: #fefefe;
+    text-align:center;
+    font-family:
+        "Whitney",
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+    font-size:16px;
+    margin-left:30%;
+    margin-right:30%;
+}

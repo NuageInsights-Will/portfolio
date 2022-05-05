@@ -1,0 +1,7 @@
+FROM python:3.9.0
+WORKDIR /usr/src/app/
+COPY requirements-flask.txt .
+RUN pip install --no-cache-dir -r requirements-flask.txt
+WORKDIR /usr/src/app/webserver/
+COPY .env .env
+CMD ["flask", "run", "--host=0.0.0.0"]

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Ghiblmi</title>
+    <link href="{{ url_for('static',filename='styles/search.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Ghiblmi</h1>
+    <h2><a href="{{ url_for('index') }}">Home</a> <a href="{{ url_for('about_page') }}">About</a></h2> <br>
+    <h3>Search</h3>    
+    <div class="form-group">
+        <form method="post">
+            <input type="text" class="search_input" name="search_text" placeholder="My Neighbor..." autocomplete="off">
+            <p>{{ message }}</p>
+        </form>
+    </div>
+</body>
+</html>

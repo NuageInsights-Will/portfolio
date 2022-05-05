@@ -1,0 +1,161 @@
+@charset "UTF-8";
+/* CSS for Ghiblmi API */
+
+@font-face {
+    font-family:"Uni Neue Black";
+    font-weight:black italic;
+    src:url('/static/fonts/UniNeueBlack-Italic.otf');
+}
+
+@font-face {
+    font-family:"Uni Neue";
+    font-weight:bold;
+    src:url('/static/fonts/UniNeueBold.otf');
+}
+
+@font-face {
+    font-family:"Whitney";
+    font-weight:book;
+    src:url('/static/fonts/Whitney-Book-Pro.otf');
+}
+
+h1 {
+    display: inline-block;
+    color: #fefefe;
+    text-align:left;
+    font-family:
+        "Uni Neue Black",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:30px;
+    padding-top:.5em;
+    padding-left:1.5em;
+    text-transform:uppercase;
+}
+
+h2 {
+    float:right;
+    margin-top:1.75em;
+    margin-right:2.5em;
+}
+
+h3 {
+    color: #fefefe;
+    text-align:center;
+    font-family:
+        "Uni Neue",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:30px; 
+    padding-top:20px;
+    text-transform:uppercase;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:3%;
+    width: 292.5px;
+    aspect-ratio: auto 292.5 / 416;
+    height: 416px;
+}
+
+body {
+    background-color:#212529;
+    margin:0;
+    padding:0;
+}
+
+
+p {
+    color: #fefefe;
+    text-align:center;
+    font-family:
+        "Whitney",
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+    font-size:16px;
+    margin-left:32%;
+    margin-right:32%;
+}
+
+p2 {
+    display: block;
+    color: #fefefe;
+    text-align:center;
+    font-family:
+        "Whitney",
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+    font-size:18px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -22px;
+}
+
+a:link {
+    color: #fefefe;
+    text-align:right;
+    font-family:
+        "Uni Neue Black",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:24px;
+    padding-left:1em;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #fefefe;
+    text-align:right;
+    font-family:
+        "Uni Neue Black",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:24px;
+    padding-left:1em;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fefefe;
+    text-align:right;
+    font-family:
+        "Uni Neue Black",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:24px;
+    padding-left:1em;
+    text-decoration: underline solid;
+    text-shadow: -1px 1px 1px #00DCFF;
+}
+
+a:active {
+    color:  #94eda0;
+    text-align:right;
+    font-family:
+        "Uni Neue Black",
+        Helvetica, 
+        Arial, 
+        sans-serif;
+    font-size:24px;
+    padding-left:1em;
+    text-decoration: none;
+    text-shadow: -1px 1px 1px #00DCFF;
+}
+
+br {
+    display: block; /* makes it have a width */
+    content: ""; /* clears default height */
+    margin-top: 20px; /* change this to whatever height you want it */
+}

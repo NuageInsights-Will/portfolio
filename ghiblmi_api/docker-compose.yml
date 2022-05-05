@@ -1,0 +1,62 @@
+version: "3.7"
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.flask
+    environment:
+      FLASK_APP: 'ghiblmi.py'
+      FLASK_DEBUG: 1
+      CONNECTION_URI: ${CONNECTION_URI}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+    volumes:
+      - ./webserver:/usr/src/app/webserver
+    ports:
+      - 5000:5000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 500M
+        reservations:
+          cpus: '0.05'
+          memory: 100M
+
+  postgres:
+    image: postgres:latest
+    hostname: pg-db-host
+    environment:
+      POSTGRES_DB: ghiblmi-db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    volumes:
+      - ./postgres-db-volume:/var/lib/postgresql/data
+    ports:
+      - 5434:5432
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 1000M
+        reservations:
+          cpus: '0.05'
+          memory: 500M
+    restart: always
+
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    volumes:
+      - ./airflow:/usr/local/airflow/
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 6000M
+        reservations:
+          cpus: '0.1'
+          memory: 1000M
+    ports:
+      - 8181:8080
