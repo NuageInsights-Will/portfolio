@@ -30,9 +30,10 @@ customer_purchase_aggregate AS (
     SELECT DISTINCT
         Customer_ID,
         Customer_State,
-        SUM(Order_Total)
-            OVER(PARTITION BY Customer_ID) AS Total_Spent_Per_Customer
+        SUM(Order_Total) AS Total_Spent_Per_Customer
     FROM purchase_data
+    GROUP BY
+        1, 2
 ),
 
 revenue_by_state AS (
@@ -110,18 +111,6 @@ revenue_by_state AS (
     ORDER BY 
         4 DESC
 ),
-
--- revenue_by_region AS (
---     SELECT
---         Region,
---         SUM(State_Revenue) AS Gross_Revenue
---     FROM 
---         revenue_by_state
---     GROUP BY 
---         1
---     ORDER BY 
---         2 DESC
--- ),
 
 results AS(
     SELECT 
