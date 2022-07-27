@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: ecommerce_dataset
+    description: 'Sample e-commerce dataset provided for free by Kaggle'
+    database: FIVETRAN_DATABASE
+    schema: MYSQL_AZURE_LEARN_SNOWFLAKE
+    tables:
+      - name: CUSTOMERS
+      - name: GEOLOCATION
+      - name: ORDERS
+      - name: ORDER_ITEMS
+      - name: ORDER_PAYMENTS
+      - name: ORDER_REVIEWS
+      - name: PRODUCTS
+      - name: SELLERS
+      - name: PRODUCT_CATEGORY_NAME_TRANSLATIONS
+            
+
